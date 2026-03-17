@@ -36,7 +36,7 @@ Sample Output:
 -max(:) and min(:) with matrix flattening  
 -find() for row/column index location
 
-Arithmetic Series Calculator
+-----Arithmetic Series Calculator---------
 [What it does]  
 A menu-driven arithmetic series calculator that lets the user repeatedly perform calculations on sequences until they choose to exit.
 
@@ -63,7 +63,20 @@ A menu-driven arithmetic series calculator that lets the user repeatedly perform
 -input() with string mode for Y/N continuation
 
 
-Air Viscosity Calculator
+--------Air Viscosity Calculator-----------  
+“A dynamic viscosity is generated if we have different surfaces of air molecules moving parallel to the object's surface.”   
+The dynamic viscosity µ can be found using the following equation: where   
+a) 1.458 x 10-6 is a constant   
+b)110.4 is an empirical constant  
+c) T is the temperature in Kelvin  
+The density of air ρ is given by where  
+a) P is absolute pressure   
+b) R is specific gas constant (287.05)   
+c) T is absolute temperature 
+
+The value of kinematic viscosity is then calculated as below: Where dynamic viscosity µ and density of air ρ are calculated as above. 
+Write appropriate function for the formulas for reusability. Create a program to ask the user to enter the temperature in Celsius, pressure in terms of bars (1 bar = 10^5 Pa). Call the appropriate functions to arrive at the value of kinematic viscosity v and display that value to the screen.
+
 [What it does]  
 -Calculates the kinematic viscosity of air based on user-supplied temperature and pressure inputs.   
 -Uses Sutherland's Law for dynamic viscosity and the ideal gas law for air density.

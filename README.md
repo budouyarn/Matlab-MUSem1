@@ -9,7 +9,7 @@ Each program is menu-driven, input-validated, and structured to demonstrate prac
 ├──Q3: Air Viscosity Calculator  
 ├──Q4: Dice Roll Simulator & Histogram Plotter
 
-Random Matrix Generator & Analyser    
+-----Random Matrix Generator & Analyser----------    
 [What it does]  
 Generates two random matrices of the same user-defined dimensions and performs analysis to find the biggest and smallest elements in each, along with their locations.  
 [How it works]  
@@ -101,7 +101,7 @@ Sample Output:
 
 <img width="689" height="547" alt="image" src="https://github.com/user-attachments/assets/2b2ec914-4d44-47c8-8615-9583c00552bd" />
 
-Question 4 — Dice Roll Simulator & Histogram Plotter
+----------Dice Roll Simulator & Histogram Plotter-----------
 
 [What it does]  
 Simulates rolling a 10-sided dice a user-specified number of times, performs statistical analysis on the results, and produces an annotated histogram.

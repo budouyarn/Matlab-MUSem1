@@ -1,0 +1,59 @@
+clc
+%user to enter the temperature in Celsius, pressure in terms of bars
+% (1 bar = 10^5 Pa).
+disp('Air Density Calculator');
+choice='y';
+while(choice=='y'||choice=='Y');
+%Finding Temperature in Kelvin
+%Finding Absolute Pressure
+%Printing out conversion of Temperature of Kelvin
+disp('------Conversion Calculation------------');
+temp = input('Enter Temperature in Celsius:');
+disp('Converting Temperature from Celsius to Kelvin....');
+Kelvin=temp+273.15;
+fprintf('Temperature in Kelvin is: %.1f Kelvin \n', Kelvin);
+pbar= input('Enter Absolute Pressure in Bars: ');
+disp('Converting Pressure in bar to Pressure in Pascal....')
+ppa=(pbar*10^5);
+fprintf('Absolute Pressure in Pascal is: %.2f Pa \n',ppa);
+
+%function for user to choose
+disp('------------Air Calculation--------------------------')
+disp('1 : Find Dynamic viscosity of air');
+disp('2 : Find Density of air');
+disp('3 : Find Kinemetic Viscosity of Air');
+disp('4 : Exit the program');
+
+option = input('Enter your option [1/2/3/4] to start calculations : ');
+switch(option)
+        case 1
+            constantc = 1.458e-6;
+            constante = 110.4;
+            temp0= input('Enter Temperature in Kelvin:');
+            suther=temp0 + constante;
+            Pascalsecond=constantc*temp0^1.5/suther;
+            fprintf('Dynamic viscosity of Air μ is : %.3f X 10^-5 μPa·s \n', Pascalsecond*1e5);
+case 2
+            temp0=input('Enter Temperature in Kelvin:');
+            pbar= input('Enter Absolute Pressure in Bars:');
+            ppa=pbar*10^5;
+            RT=287.05*temp0
+            P= ppa/RT
+  fprintf('Density of air ρ is : %.3f kg/m³ \n', P);
+
+case 3
+disp('Calculating with previous value inputs......');
+V=Pascalsecond/P;
+fprintf('Kinemetic Viscosity of Air ν is : %.3f X 10^-5 m2 /s \n', V*1e5);
+
+case 4
+ fprintf('The program will terminate.. \n');
+            exit();
+
+
+
+        otherwise
+            fprintf('Invalid option Entered \n');
+    end
+choice = input('Do you want to continue again ? [Y/N] : ', 's');
+end

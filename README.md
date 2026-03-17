@@ -9,7 +9,7 @@ Each program is menu-driven, input-validated, and structured to demonstrate prac
 ├──Q3: Air Viscosity Calculator  
 ├──Q4: Dice Roll Simulator & Histogram Plotter
 
-Question 1 — Random Matrix Generator & Analyser    
+Random Matrix Generator & Analyser    
 [What it does]  
 Generates two random matrices of the same user-defined dimensions and performs analysis to find the biggest and smallest elements in each, along with their locations.  
 [How it works]  
@@ -17,10 +17,10 @@ The program is split into three logical parts:
 1) Input Validation (while loop)  
 The user is prompted to enter the number of rows and columns for the matrices. Both must be between 3 and 6 (inclusive). Invalid entries trigger an error message and re-prompt the user until a valid value is supplied.
 
-3) Matrix Generation
+Matrix Generation
 Two matrices, A and B, are generated using randi([0, 100], rows, cols) — filling each matrix with random integers in the range 0 to 100. Both matrices are displayed immediately after generation.
 
-3)Element Analysis  
+Element Analysis  
 The program flattens each matrix using the : operator, finds the maximum and minimum values using max() and min(), then locates each element's row and column position using find(). Results are printed for both matrices.  
 
 Sample Output:    
@@ -36,7 +36,7 @@ Sample Output:
 -max(:) and min(:) with matrix flattening  
 -find() for row/column index location
 
-Question 2 — Arithmetic Series Calculator
+Arithmetic Series Calculator
 [What it does]  
 A menu-driven arithmetic series calculator that lets the user repeatedly perform calculations on sequences until they choose to exit.
 
@@ -62,7 +62,8 @@ A menu-driven arithmetic series calculator that lets the user repeatedly perform
 -Arithmetic series formulas implemented as inline expressions  
 -input() with string mode for Y/N continuation
 
-Question 3 — Air Viscosity Calculator
+
+Air Viscosity Calculator
 [What it does]  
 -Calculates the kinematic viscosity of air based on user-supplied temperature and pressure inputs.   
 -Uses Sutherland's Law for dynamic viscosity and the ideal gas law for air density.

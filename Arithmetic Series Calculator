@@ -1,0 +1,43 @@
+clc
+ disp('Welcome to the Arithmetic Series Calculator!');
+choice = 'y';   
+disp('1 : Find the common difference')
+disp('2 : Find the nth term')
+disp('3 : Find the sum to n terms')
+disp('4 : Exit the program')
+while(choice == 'y' || choice == 'Y')
+option = input('Enter your option [1/2/3/4] here : ');
+    switch(option)
+        case 1
+            term1 = input('Enter first term in the sequence : ');
+            term2 = input('Enter second term in the sequence : ');
+            d = term2 - term1;
+            fprintf('Common difference is = %.1f \n', d);
+
+        case 2
+            term1 = input('Enter first term in the sequence : ');
+            term2 = input('Enter second term in the sequence : ');
+            d = term2 - term1;
+            a = term1;
+            n= input('Enter the number of term to find : ');
+            Tn = a+(n-1)*d;
+            fprintf('The %dth term is  = %.1f \n', n, Tn);
+       
+        case 3
+            term1 = input('Enter first term in the sequence : ');
+            term2 = input('Enter second term in the sequence : ');
+            d = term2 - term1;
+            a = term1;
+            n= input('Enter sum of how many terms? : ');
+Sn = (n/2)*(2*a + (n-1)*d);
+            fprintf('The sum of first %d terms  = %.1f \n', n,Sn);
+ 
+        case 4
+            fprintf('The program will terminate.. \n');
+            exit();
+  
+        otherwise
+            fprintf('Invalid option Entered \n');
+    end
+choice = input('Do you want to continue again ? [Y/N] : ', 's');
+End

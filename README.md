@@ -1,4 +1,4 @@
-# Matlab-MUSem1
+# Matlab-MU
 Practise and Learning of Matlab programming
 
 The assignment consists of four MATLAB/Octave programs that apply mathematical and computational concepts including matrix operations, arithmetic series, fluid dynamics formulas, and statistical data analysis.   

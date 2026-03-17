@@ -1,0 +1,102 @@
+clc
+% Part 1: prompt user for number of rolls
+
+rollsNo = input('Enter the number of rolls of a 10 sided dice : ');
+
+% randomise the rolling of the dice and store the statistics into a vector
+rolls = randi([1,10], 1, rollsNo);
+disp(['Generated Number of Rolls (', num2str(rolls), 'x', num2str(rollsNo), '):']);
+disp(rolls);
+disp('------------------------------------')
+% Part 2:
+frequency = hist(rolls, 1:10);
+disp('Frequency of Rollout:')
+fprintf('Frequency of rolls = %d \n', frequency);
+% [Mean, Mode (Highest Frequency Num), Min, Max, StdDev, Median]
+mean_val = mean(rollsNo);
+max_freq_num = mode(rollsNo);
+min_val = min(rollsNo);
+max_val = max(rollsNo);
+std_dev = std(rollsNo);
+median_val = median(rollsNo);
+stats_vector = [mean_val, max_freq_num, min_val, max_val, std_dev, median_val];
+
+disp('------------------------------------')
+disp(' Statistical Analysis Results:');
+disp(['1. Mean (Average Value): ', num2str(stats_vector(1), '%.3f')]);
+disp(['2. Number with Highest Frequency (Mode): ', num2str(stats_vector(2))]);
+disp(['Statistics Vector: [Mean, Mode, Min, Max, StdDev, Median]']);
+disp(stats_vector);
+
+% Calculate the number of elements in the vector
+vector_length = length(stats_vector);
+% the average value of the rolls.
+[max_freq, max_num] = max(frequency);
+
+%Plot a histogram number of bars to indicate the number of
+% occurence/frequency of each number
+%  Give the histogram an appropriate title as well as naming
+title('Analysis of dice rolls')
+num_sides= 10;
+hist('NumBins',num_sides, max_freq_num, mean_val );
+hist(frequency,rollsNo);
+% Frequency counts and bin centers
+[counts, centers] = hist(rollsNo, num_sides);
+
+xlabel('Dice Face Value (1 to 10)');
+ylabel('Number of Occurrences (Frequency)');
+xticks(1:num_sides);
+xlim([0.5, num_sides + 0.5]);
+grid on;
+max_frequency = max(counts);
+
+
+% Annotation 1: Indicate the Average Value (Mean)
+% 1. Get Y-axis limits to span the line
+y_limits = ylim(gca);
+y_start = y_limits(1);
+y_end = y_limits(2);
+
+% 2. Draw the vertical line using the 'line' function
+% This replaces the xline function for cross-compatibility.
+line([mean_val mean_val], [y_start y_end], ...
+    'Color', 'r', ...
+    'LineStyle', '--', ...
+    'LineWidth', 2);
+
+% 3. Add the label using the 'text' function, positioning it at the top
+label_text = ['Average Value (\mu): ', num2str(mean_val, '%.2f')];
+text(mean_val, y_end, label_text, ...
+     'VerticalAlignment', 'top', ...
+     'HorizontalAlignment', 'left', ...
+     'FontName', 'Arial', ...
+     'FontSize', 10);
+
+% Annotation 2: Indicate the Highest Frequency (Mode) ---
+% Get the height of the mode bar.
+[counts, centers] = hist(rolls, num_sides);
+max_frequency = max(counts);
+idx_mode = find(counts == max_frequency, 1);
+
+if ~isempty(idx_mode)
+    % mode number is the center of that bin
+    max_freq_num_octave = centers(idx_mode);
+
+    %mode height is the count at that index
+    mode_height_octave = counts(idx_mode);
+     mode_height = counts(idx_mode);
+
+    %text annotation to the highest bar
+    text(max_freq_num, mode_height + 0.05 * max_frequency, ...
+         ['Highest Freq: ', num2str(max_freq_num), ' (', num2str(mode_height), ' times)'], ...
+         'HorizontalAlignment', 'center', ...
+         'VerticalAlignment', 'bottom', ...
+         'Color', 'blue', ...
+         'FontName', 'Arial', ... % Set font for the annotation text
+         'FontSize', 10, ...
+         'FontWeight', 'bold');
+end
+
+% Adjust Y-axis limit for annotation
+ylim([0, max_frequency * 1.15]);
+

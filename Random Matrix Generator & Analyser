@@ -1,0 +1,60 @@
+% (a) The user would be asked for the number of rows and columns ranging from 3 to 6. 
+% Part 1: using if else and while loop
+
+clc
+disp(‘Welcome!’)  
+  
+%declare and initialise variables 
+rows = 0;  
+cols = 0;  
+
+while (rows < 3) || (rows > 6)
+    rows = input('Enter the number of rows (3 to 6): ');
+    if (rows < 3) || (rows > 6)
+        fprintf('Invalid input. Rows must be between 3 and 6.\n');
+    end
+end
+
+while (cols < 3) || (cols > 6)
+    cols = input('Enter the number of columns (3 to 6): ');
+    if (cols < 3) || (cols > 6)
+        fprintf('Invalid input. Columns must be between 3 and 6.\n');
+    end
+end
+
+% Part 2: Create 2 matrices of the same dimension randomly and populate the matrices with random numbers ranging from 0-100.
+
+A = randi([0, 100], rows, cols); 
+B = randi([0, 100], rows, cols);
+
+% (b) Display the contents of each matrix after generating the matrices. 
+disp(['Generated Matrix A (', num2str(rows), 'x', num2str(cols), '):']);
+disp(A);
+
+disp(['Generated Matrix B (', num2str(rows), 'x', num2str(cols), '):']);
+disp(B);
+% ( c ) Find the biggest and smallest elements in each matrix and hence the indicating the bigger or smaller element overall. Also indicate the location of where these elements can be found. The location indicates the row and column at which the biggest or smallest element can be located within each matrix.  
+
+%Finding the biggest and smallest element in each matrix
+% Flattening of A and B
+maxA = max(A(:));
+minA = min(A(:));
+
+% location of elements 
+
+[rowMaxA, colMaxA] = find(A == maxA, 1, 'first');
+[rowMinA, colMinA] = find(A == minA, 1, 'first');
+fprintf('--- Analysis for Matrix A ---\n');
+fprintf('  Biggest Element: %d at location (%d, %d)\n', maxA, rowMaxA, colMaxA);
+fprintf('  Smallest Element: %d at location (%d, %d)\n', minA, rowMinA, colMinA);
+
+maxB = max(B(:));
+minB = min(B(:));
+
+[rowMaxB, colMaxB] = find(B == maxB, 1, 'first');
+[rowMinB, colMinB] = find(B == minB, 1, 'first');
+
+
+fprintf('--- Analysis for Matrix B ---\n');
+fprintf('  Biggest Element: %d at location (%d, %d)\n', maxB, rowMaxB, colMaxB);
+fprintf('  Smallest Element: %d at location (%d, %d)\n', minB, rowMinB, colMinB);
